@@ -1,3 +1,12 @@
+######### y: denotes the trait value or the residuals for covariates
+          x: denote the corresponding GxE interactions or the residuals for covariates 
+          z: denote the genotypic socre
+         q0: denote the threshold for distinguishing rare or common variants
+     numper: denotes the times of permutation
+
+
+
+
 VW_TOW_GE=function(y,x,z,q0,numper) 
 {
   ee=0.000001
