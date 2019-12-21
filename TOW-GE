@@ -1,3 +1,9 @@
+
+######### y: denotes the trait value or the residuals for covariates
+          X: denote the corresponding GxE interactions or the residuals for covariates 
+     numper: denotes the times of permutation
+
+
 TOW_GE=function(y,x,numper)
 {
   ee=0.000001
