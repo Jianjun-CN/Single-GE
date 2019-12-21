@@ -1,0 +1,15 @@
+TOW_p=function(y,x,numper)
+{
+  ee=0.000001
+  T1per=rep(0,numper)
+  m=ncol(x)
+  aa=apply(x,2,var)+ee
+  T1=sum(cov(y,x)^2/aa)
+  for(i in 1:numper)
+  {
+    yper=sample(y)
+    T1per[i]=sum(cov(yper,x)^2/aa)
+  }
+  pv=sum(T1per>T1)/numper
+  return(pv)
+}
