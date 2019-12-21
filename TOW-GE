@@ -1,4 +1,4 @@
-TOW_p=function(y,x,numper)
+TOW_GE=function(y,x,numper)
 {
   ee=0.000001
   T1per=rep(0,numper)
