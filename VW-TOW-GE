@@ -1,4 +1,4 @@
-VW-TOW-GE=function(y,x,z,q0,numper) 
+VW_TOW_GE=function(y,x,z,q0,numper) 
 {
   ee=0.000001
   m=ncol(x)
