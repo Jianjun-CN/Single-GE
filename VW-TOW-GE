@@ -1,0 +1,38 @@
+VW-TOW-GE=function(y,x,z,q0,numper) 
+{
+  ee=0.000001
+  m=ncol(x)
+  n=nrow(x)
+  q=colMeans(z)/2
+  a0=which(q<q0)
+  x0=x
+  #############################
+  T1per=rep(0,numper)
+  x1=x=x0[,a0]
+  aa1=aa=apply(x,2,var)+ee
+  T1=sum(cov(y,x)^2/aa)
+  #############################
+  T2per=rep(0,numper)
+  x=x0[,-a0]
+  nn=ncol(x0)-length(a0)
+  if(nn==1)aa=var(x)+ee
+  else aa=apply(x,2,var)+ee
+  T2=sum(cov(y,x)^2/aa)
+  for(i in 1:numper)
+  {
+    yper=sample(y)
+    T2per[i]=sum(cov(yper,x)^2/aa)
+    T1per[i]=sum(cov(yper,x1)^2/aa1)
+  }
+  ##############################
+  mm=20
+  sd1=sd(T1per)
+  sd2=sd(T2per)
+  T1=c(T1,T1per)/sd1
+  T2=c(T2,T2per)/sd2
+  lambda=c(0:mm)/mm
+  T=T1%*%t(1-lambda)+T2%*%t(lambda)
+  T0=apply(T,2,rank)
+  T=apply(T0,1,max)		
+  pv=sum(T[2:(numper+1)]>T[1])/numper+sum(T[2:(numper+1)]==T[1])/numper/2
+}
