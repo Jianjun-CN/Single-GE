@@ -1,5 +1,5 @@
-######### y: denotes the trait value or the residuals for covariates
-          x: denote the corresponding GxE interactions or the residuals for covariates 
+######### y: denotes the trait value or its residuals after adjusting for covariates
+          x: denote the corresponding GxE interactions or their residuals after adjusting for covariates
           z: denote the genotypic socre
          q0: denote the threshold for distinguishing rare or common variants
      numper: denotes the times of permutation
